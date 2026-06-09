@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Юридическая компания Эгида. Юридические услуги для физических и юридических лиц в Калининграде и других регионах России."
+    />
+    <title>Эгида | Юридическая компания</title>
+    <link rel="icon" href="assets/egida-logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="home">
+      <div class="container header-shell">
+        <a class="brand" href="#home" aria-label="Эгида">
+          <span class="brand-mark">
+            <img src="assets/egida-logo.svg" alt="" aria-hidden="true" />
+          </span>
+          <span class="brand-text">
+            <span>ЭГИДА</span>
+            <small>Юридическая компания</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+          <a class="active" href="#home">Главная</a>
+          <a href="#services">Услуги</a>
+          <a href="#about">О компании</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="header-contacts">
+          <a href="tel:+74012378343"><i data-lucide="phone"></i>+7 (4012) 37-83-43</a>
+          <a href="tel:+79097805999"><i data-lucide="phone"></i>+7 (909) 780-59-99</a>
+          <a href="mailto:info@egida39.ru"><i data-lucide="mail"></i>info@egida39.ru</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section-with-bg" data-parallax="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Юридические услуги разной сложности</p>
+            <h1>Всегда<br />на Вашей защите</h1>
+            <p class="hero-lead">
+              Оказываем юридические услуги различной сложности для физических и юридических лиц
+              в Калининграде и других регионах России.
+            </p>
+            <a class="btn btn-primary" href="#consultation">
+              Получить консультацию
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="hero-card" aria-label="Преимущества компании">
+            <div class="hero-card-item">
+              <i data-lucide="briefcase-business"></i>
+              <p><strong>20+ лет</strong><span>юридической практики</span></p>
+            </div>
+            <div class="hero-card-item">
+              <i data-lucide="badge-check"></i>
+              <p><strong>Тысячи</strong><span>успешных дел</span></p>
+            </div>
+            <div class="hero-card-item">
+              <i data-lucide="users-round"></i>
+              <p><strong>Индивидуальный подход</strong><span>к каждому клиенту</span></p>
+            </div>
+            <div class="hero-card-item">
+              <i data-lucide="shield-check"></i>
+              <p><strong>Конфиденциальность</strong><span>и гарантия результата</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="workflow">
+        <div class="container">
+          <div class="section-top workflow-top">
+            <div>
+              <h2>Как мы работаем</h2>
+              <span class="title-line light"></span>
+            </div>
+            <a class="btn btn-outline" href="#consultation">
+              <i data-lucide="phone-call"></i>
+              Заказать звонок
+            </a>
+          </div>
+
+          <div class="steps">
+            <article class="step">
+              <i data-lucide="handshake"></i>
+              <span>01</span>
+              <h3>Обращение</h3>
+              <p>Вы оставляете заявку или звоните нам.</p>
+            </article>
+            <span class="step-arrow" aria-hidden="true">→</span>
+            <article class="step">
+              <i data-lucide="scale"></i>
+              <span>02</span>
+              <h3>Консультация</h3>
+              <p>Анализируем ваш вопрос и предлагаем решение.</p>
+            </article>
+            <span class="step-arrow" aria-hidden="true">→</span>
+            <article class="step">
+              <i data-lucide="clipboard-list"></i>
+              <span>03</span>
+              <h3>Стратегия</h3>
+              <p>Определяем план действий и согласуем с вами.</p>
+            </article>
+            <span class="step-arrow" aria-hidden="true">→</span>
+            <article class="step">
+              <i data-lucide="user-check"></i>
+              <span>04</span>
+              <h3>Работаем</h3>
+              <p>Реализуем стратегию и сопровождаем дело.</p>
+            </article>
+            <span class="step-arrow" aria-hidden="true">→</span>
+            <article class="step">
+              <i data-lucide="shield-check"></i>
+              <span>05</span>
+              <h3>Результат</h3>
+              <p>Достигаем цели и защищаем ваши права.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="container">
+          <div class="section-top">
+            <div>
+              <h2>Услуги</h2>
+              <span class="title-line"></span>
+            </div>
+            <a class="text-link" href="#consultation">Все услуги</a>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card">
+              <span class="icon-ring"><i data-lucide="landmark"></i></span>
+              <h3>Арбитраж, третейские суды, банкротство</h3>
+              <p>Представительство в судах всех инстанций, сопровождение арбитражных споров.</p>
+              <a class="card-bottom" href="#consultation">
+                <strong>Получить консультацию</strong>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </article>
+            <article class="service-card">
+              <span class="icon-ring"><i data-lucide="scale"></i></span>
+              <h3>Суд общей юрисдикции</h3>
+              <p>Представление интересов в судах общей юрисдикции по гражданским делам.</p>
+              <a class="card-bottom" href="#consultation">
+                <strong>Получить консультацию</strong>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </article>
+            <article class="service-card">
+              <span class="icon-ring"><i data-lucide="briefcase"></i></span>
+              <h3>Административные дела</h3>
+              <p>Обжалование постановлений, защита при административных правонарушениях.</p>
+              <a class="card-bottom" href="#consultation">
+                <strong>Получить консультацию</strong>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </article>
+            <article class="service-card">
+              <span class="icon-ring"><i data-lucide="house"></i></span>
+              <h3>Недвижимость и сделки</h3>
+              <p>Сделки с недвижимостью, регистрация, узаконивание перепланировок, споры.</p>
+              <a class="card-bottom" href="#consultation">
+                <strong>Получить консультацию</strong>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container about-grid">
+          <div class="about-copy">
+            <h2>О компании</h2>
+            <span class="title-line"></span>
+            <p>Юридическая компания «Эгида» основана в 2010 году.</p>
+            <p>
+              Мы предоставляем полный спектр юридических услуг для бизнеса и частных лиц.
+              Наша команда - это опытные юристы, адвокаты и эксперты, которые работают
+              на результат.
+            </p>
+            <p>
+              Мы ценим доверие клиентов и гарантируем высокий уровень профессионализма,
+              конфиденциальность и прозрачность на каждом этапе работы.
+            </p>
+            <a class="btn btn-primary" href="#contacts">Подробнее о компании</a>
+          </div>
+          <div class="about-image">
+            <img src="assets/about-themis.png" alt="Статуя Фемиды на фоне юридических книг" />
+          </div>
+        </div>
+      </section>
+
+      <section class="advantages">
+        <div class="container">
+          <div class="center-heading">
+            <h2>Наши преимущества</h2>
+            <span class="title-line centered"></span>
+          </div>
+
+          <div class="advantage-grid">
+            <article>
+              <i data-lucide="badge-check"></i>
+              <h3>Гарантия качества услуг</h3>
+            </article>
+            <article>
+              <i data-lucide="users"></i>
+              <h3>Опытные специалисты</h3>
+            </article>
+            <article>
+              <i data-lucide="scroll-text"></i>
+              <h3>Высокая квалификация</h3>
+            </article>
+            <article>
+              <i data-lucide="shield"></i>
+              <h3>Полная конфиденциальность</h3>
+            </article>
+            <article>
+              <i data-lucide="user-round-check"></i>
+              <h3>Индивидуальный подход</h3>
+            </article>
+            <article>
+              <i data-lucide="calendar-check"></i>
+              <h3>Быстрое выполнение</h3>
+            </article>
+            <article>
+              <i data-lucide="shield-plus"></i>
+              <h3>Приемлемые цены</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="consultation section-with-bg" id="consultation" data-parallax="consultation">
+        <div class="consultation-bg" aria-hidden="true"></div>
+        <div class="container consultation-grid">
+          <div class="consultation-copy">
+            <h2>Нужна консультация?</h2>
+            <span class="title-line"></span>
+            <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время.</p>
+          </div>
+
+          <form class="consultation-form" novalidate>
+            <div class="form-row">
+              <label>
+                <span>Ваше имя*</span>
+                <input name="name" type="text" autocomplete="name" placeholder="Ваше имя*" />
+              </label>
+              <label>
+                <span>Ваш E-mail*</span>
+                <input name="email" type="email" autocomplete="email" placeholder="Ваш E-mail*" />
+              </label>
+            </div>
+            <label>
+              <span>Ваше сообщение</span>
+              <textarea name="message" rows="5" placeholder="Ваше сообщение"></textarea>
+            </label>
+            <div class="form-footer">
+              <label class="consent">
+                <input name="consent" type="checkbox" />
+                <span>
+                  Я даю согласие на обработку моих персональных данных в соответствии с
+                  <a href="#" aria-label="Федеральный закон о персональных данных">ч.4 ст.9 152-ФЗ</a>
+                </span>
+              </label>
+              <button class="btn btn-primary" type="submit">Отправить заявку</button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="contacts" id="contacts">
+        <div class="container contacts-grid">
+          <div class="contacts-info">
+            <h2>Контакты</h2>
+            <span class="title-line"></span>
+            <ul>
+              <li>
+                <i data-lucide="map-pin"></i>
+                <span>г. Калининград, ул. Маяковского 16/2<br />ориентир ОВД по Центральному району, ОП №3</span>
+              </li>
+              <li><i data-lucide="phone"></i><a href="tel:+74012378343">+7 (4012) 37-83-43</a></li>
+              <li><i data-lucide="phone"></i><a href="tel:+79097805999">+7 (909) 780-59-99</a></li>
+              <li><i data-lucide="mail"></i><a href="mailto:info@egida39.ru">info@egida39.ru</a></li>
+            </ul>
+          </div>
+
+          <div class="map-card">
+            <div class="map-fallback" aria-hidden="true">
+              <span class="map-pin"><i data-lucide="map-pin"></i></span>
+            </div>
+            <div
+              class="yandex-map"
+              id="yandex-map"
+              role="img"
+              aria-label="Карта: Эгида, Калининград, улица Маяковского 16/2"
+            ></div>
+          </div>
+
+          <footer class="footer-panel">
+            <p><strong>ООО ЮК «ЭГИДА»</strong></p>
+            <p>ИНН 3908606497, КПП 390601001</p>
+            <p>ОГРН 1103925007141</p>
+            <p>Дата присвоения ОГРН: 03.03.2010</p>
+            <p>Адрес: 236022, г. Калининград, ул. Маяковского 16/2</p>
+            <p>тел.: <a href="tel:+74012378343">(4012) 378343</a>, эл. почта: <a href="mailto:info@egida39.ru">info@egida39.ru</a></p>
+            <p class="copyright">© 2026 Эгида. Все права защищены.</p>
+            <button class="to-top" type="button" aria-label="Наверх">
+              <i data-lucide="chevron-up"></i>
+            </button>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=bb56c155-e31f-4d35-b180-a805e221b42a&lang=ru_RU"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
