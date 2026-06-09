@@ -159,13 +159,7 @@ const initYandexMap = () => {
 
     requestAnimationFrame(fitMap);
     window.setTimeout(fitMap, 250);
-
-    if ("ResizeObserver" in window) {
-      const observer = new ResizeObserver(fitMap);
-      observer.observe(mapNode);
-    } else {
-      window.addEventListener("resize", fitMap);
-    }
+    window.addEventListener("resize", fitMap, { passive: true });
   };
 
   ymaps
