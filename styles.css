@@ -852,16 +852,9 @@ textarea:focus {
   position: relative;
   z-index: 2;
   overflow: hidden;
-  contain: layout paint;
   border: 0.0694vw solid var(--line);
   opacity: 0;
   transition: opacity 0.25s ease;
-}
-
-.yandex-map > ymaps,
-.yandex-map ymaps {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
 }
 
 .yandex-map.is-loaded {
@@ -1490,6 +1483,7 @@ textarea:focus {
   .consultation-grid,
   .contacts-grid {
     grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .service-grid {
@@ -1604,6 +1598,8 @@ textarea:focus {
   }
 
   .map-card {
+    height: 81.11vw;
+    box-sizing: border-box;
     padding: 5.5556vw 0 11.6667vw;
   }
 
