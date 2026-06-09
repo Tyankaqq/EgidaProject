@@ -112,7 +112,7 @@ const initYandexMap = () => {
   if (!mapNode || !window.ymaps) return;
 
   const address = "Россия, Калининград, улица Маяковского, 16/2";
-  const fallbackCoords = [54.7169, 20.4757];
+  const fallbackCoords = [54.729075, 20.472911];
 
   const createMap = (coords) => {
     const map = new ymaps.Map(
