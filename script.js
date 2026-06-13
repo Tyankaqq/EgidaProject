@@ -27,6 +27,49 @@ document.querySelectorAll(".main-nav a, .btn[href^='#'], .text-link[href^='#']")
   });
 });
 
+const modalOpenButtons = document.querySelectorAll("[data-modal-open]");
+const modalCloseButtons = document.querySelectorAll("[data-modal-close]");
+let activeModal = null;
+let modalTrigger = null;
+
+const closeModal = () => {
+  if (!activeModal) return;
+
+  activeModal.classList.remove("is-open");
+  activeModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  modalTrigger?.focus();
+  activeModal = null;
+  modalTrigger = null;
+};
+
+const openModal = (modal, trigger) => {
+  if (!modal) return;
+
+  activeModal = modal;
+  modalTrigger = trigger;
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  modal.querySelector(".modal-dialog")?.focus();
+};
+
+modalOpenButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    openModal(document.getElementById(button.dataset.modalOpen), button);
+  });
+});
+
+modalCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
+
 const navLinks = [...document.querySelectorAll(".main-nav a")];
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
@@ -72,7 +115,7 @@ const setStatus = (message, isError = false) => {
   status.classList.toggle("error", isError);
 };
 
-form?.addEventListener("submit", (event) => {
+form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(form);
@@ -99,8 +142,42 @@ form?.addEventListener("submit", (event) => {
     return;
   }
 
-  form.reset();
-  setStatus("Заявка подготовлена. В рабочей версии здесь будет отправка на почту или CRM.");
+  const submitButton = form.querySelector("[type='submit']");
+  submitButton.disabled = true;
+  setStatus("Отправляем заявку...");
+
+  try {
+    if (window.location.protocol === "file:") {
+      throw new Error("Для отправки заявки откройте сайт через PHP-сервер, а не как file://.");
+    }
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    const responseText = await response.text();
+    let result = {};
+
+    try {
+      result = JSON.parse(responseText);
+    } catch {
+      throw new Error("Сервер вернул некорректный ответ.");
+    }
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.message || "Не удалось отправить заявку.");
+    }
+
+    form.reset();
+    setStatus(result.message || "Заявка отправлена. Мы свяжемся с вами в ближайшее время.");
+  } catch (error) {
+    setStatus(error.message || "Не удалось отправить заявку. Попробуйте позже.", true);
+  } finally {
+    submitButton.disabled = false;
+  }
 });
 
 document.querySelector(".to-top")?.addEventListener("click", () => {

@@ -42,7 +42,6 @@
         </nav>
 
         <div class="header-contacts">
-          <a href="tel:+74012378343"><i data-lucide="phone"></i>+7 (4012) 37-83-43</a>
           <a href="tel:+79097805999"><i data-lucide="phone"></i>+7 (909) 780-59-99</a>
           <a href="mailto:info@egida39.ru"><i data-lucide="mail"></i>info@egida39.ru</a>
         </div>
@@ -55,7 +54,7 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Юридические услуги разной сложности</p>
-            <h1>Всегда<br />на Вашей защите</h1>
+            <h1>«Всегда на вашей защите»</h1>
             <p class="hero-lead">
               Оказываем юридические услуги различной сложности для физических и юридических лиц
               в Калининграде и других регионах России.
@@ -205,7 +204,7 @@
               Мы ценим доверие клиентов и гарантируем высокий уровень профессионализма,
               конфиденциальность и прозрачность на каждом этапе работы.
             </p>
-            <a class="btn btn-primary" href="#contacts">Подробнее о компании</a>
+            <button class="btn btn-primary" type="button" data-modal-open="about-modal">Подробнее о компании</button>
           </div>
           <div class="about-image">
             <img src="assets/about-themis.png" alt="Статуя Фемиды на фоне юридических книг" />
@@ -262,7 +261,8 @@
             <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время.</p>
           </div>
 
-          <form class="consultation-form" novalidate>
+          <form class="consultation-form" action="send.php" method="post" novalidate>
+            <input class="form-honeypot" name="website" type="text" autocomplete="off" tabindex="-1" aria-hidden="true" />
             <div class="form-row">
               <label>
                 <span>Ваше имя*</span>
@@ -300,9 +300,8 @@
             <ul>
               <li>
                 <i data-lucide="map-pin"></i>
-                <span>г. Калининград, ул. Маяковского 16/2<br />ориентир ОВД по Центральному району, ОП №3</span>
+                <span>г. Калининград, ул. Маяковского дом 16 <br/> помещение 2<br />ориентир ОВД по Центральному району, ОП №3</span>
               </li>
-              <li><i data-lucide="phone"></i><a href="tel:+74012378343">+7 (4012) 37-83-43</a></li>
               <li><i data-lucide="phone"></i><a href="tel:+79097805999">+7 (909) 780-59-99</a></li>
               <li><i data-lucide="mail"></i><a href="mailto:info@egida39.ru">info@egida39.ru</a></li>
             </ul>
@@ -320,21 +319,63 @@
             ></div>
           </div>
 
-          <footer class="footer-panel">
-            <p><strong>ООО ЮК «ЭГИДА»</strong></p>
-            <p>ИНН 3908606497, КПП 390601001</p>
-            <p>ОГРН 1103925007141</p>
-            <p>Дата присвоения ОГРН: 03.03.2010</p>
-            <p>Адрес: 236022, г. Калининград, ул. Маяковского 16/2</p>
-            <p>тел.: <a href="tel:+74012378343">(4012) 378343</a>, эл. почта: <a href="mailto:info@egida39.ru">info@egida39.ru</a></p>
-            <p class="copyright">© 2026 Эгида. Все права защищены.</p>
-            <button class="to-top" type="button" aria-label="Наверх">
-              <i data-lucide="chevron-up"></i>
-            </button>
-          </footer>
         </div>
       </section>
     </main>
+
+    <div class="modal" id="about-modal" aria-hidden="true">
+      <div class="modal-backdrop" data-modal-close></div>
+      <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Закрыть" data-modal-close>
+          <i data-lucide="x"></i>
+        </button>
+        <div class="modal-media">
+          <img src="assets/lawyer-tryakina-portrait.png" alt="Трякина Ксения Петровна за рабочим столом" />
+        </div>
+        <div class="modal-copy">
+          <p class="eyebrow">Юридическая компания «Эгида»</p>
+          <h2 id="about-modal-title">О компании</h2>
+          <span class="title-line"></span>
+          <div class="modal-text">
+            <p>
+              Юридическая Компания «Эгида» образована в марте 2010 года. Руководитель Трякина Ксения Петровна имеет 20-летний стаж юридической практики в различных сферах права, в том числе и в органах следствия.
+            </p>
+            <p>
+              Широкая сфера практической работы Компании делает возможным оказывать любые виды юридических услуг и правовой помощи, защиту и представительство во всех судах общей юрисдикции, арбитраже, третейских судах и во всех высших судах по всем инстанциям гражданам и юридическим лицам в области гражданского, административного, уголовного, корпоративного, арбитражного, налогового, таможенного, трудового, семейного, жилищного права, в сфере недвижимого имущества, по делам о наследовании.
+            </p>
+            <p>
+              Компания оказывает комплексное сопровождение юридических лиц, включая бухгалтерское обслуживание, взыскание задолженности, регистрацию юридических лиц (ООО, ИП, НКО), сопровождение дел о несостоятельности (банкротстве), в том числе с возвратом долгов посредством реабилитации должника c погашением задолженностей в полном объеме.
+            </p>
+            <p>
+              Дела о несостоятельности (банкротстве) ведет Арбитражный управляющий Трякин Артём Петрович. Получить более подробную информацию можно на его странице <a href="https://www.arbitrau.ru/" target="_blank" rel="noopener">arbitrau.ru</a>.
+            </p>
+            <p>
+              Мы работаем с клиентами как в Калининградском регионе, так и в других городах России, имеем опыт работы с иностранными клиентами Польши, Литвы, Германии, Кипра, стран СНГ, в том числе в области международного права.
+            </p>
+            <p>
+              Для целей эффективности решения задач и минимизации затрат наших клиентов сотрудничаем со специалистами различных областей необходимых знаний и наук: экспертами, криминалистами, автотехниками, кадастровыми инженерами, оценщиками и другими профильными специалистами.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer-panel">
+      <div class="container footer-inner">
+        <div>
+          <p><strong>ООО ЮК «ЭГИДА»</strong></p>
+          <p>ИНН 3908606497, КПП 390601001</p>
+          <p>ОГРН 1103925007141</p>
+          <p>Дата присвоения ОГРН: 03.03.2010</p>
+          <p>Адрес: 236022, г. Калининград, ул. Маяковского 16/2</p>
+          <p>эл. почта: <a href="mailto:info@egida39.ru">info@egida39.ru</a></p>
+          <p class="copyright">© 2026 Эгида. Все права защищены.</p>
+        </div>
+        <button class="to-top" type="button" aria-label="Наверх">
+          <i data-lucide="chevron-up"></i>
+        </button>
+      </div>
+    </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=bb56c155-e31f-4d35-b180-a805e221b42a&lang=ru_RU"></script>
