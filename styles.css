@@ -122,8 +122,8 @@ textarea {
 }
 
 .brand-mark img {
-  width: 3.8vw;
-  height: 3.8vw;
+  width: 5.8vw;
+  height: 4.8vw;
   object-fit: contain;
 }
 
@@ -131,7 +131,7 @@ textarea {
   display: block;
   font-family: "Cormorant Garamond", Georgia, serif;
   color: var(--blue);
-  font-size: 2.4vw;
+  font-size: 3vw;
   line-height: 0.9;
   font-weight: 700;
   letter-spacing: 0;
@@ -270,7 +270,7 @@ h2 {
 }
 
 h1 {
-  font-size: 4.5vw;
+  font-size: 3vw;
 }
 
 h2 {
