@@ -1,4 +1,4 @@
-smtp-config.php
+smtp-config.example.php
 node_modules/
 dist/
 logs/

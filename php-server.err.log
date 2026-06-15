@@ -1,0 +1,10 @@
+[Mon Jun 15 20:25:30 2026] PHP 8.5.7 Development Server (http://127.0.0.1:8000) started
+[Mon Jun 15 20:25:50 2026] 127.0.0.1:49015 Accepted
+[Mon Jun 15 20:25:50 2026] 127.0.0.1:49015 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Jun 15 20:25:50 2026] 127.0.0.1:49015 Closing
+[Mon Jun 15 20:26:14 2026] 127.0.0.1:49022 Accepted
+[Mon Jun 15 20:26:14 2026] 127.0.0.1:49022 [200]: GET /_php_openssl_check.php
+[Mon Jun 15 20:26:14 2026] 127.0.0.1:49022 Closing
+[Mon Jun 15 20:27:03 2026] 127.0.0.1:5655 Accepted
+[Mon Jun 15 20:27:05 2026] 127.0.0.1:5655 [200]: POST /send.php
+[Mon Jun 15 20:27:05 2026] 127.0.0.1:5655 Closing
