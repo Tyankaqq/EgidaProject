@@ -29,6 +29,32 @@ function field(string $name, int $limit = 2000): string
         : substr($value, 0, $limit);
 }
 
+function logFormEvent(string $event, array $data = []): void
+{
+    $logDir = __DIR__ . '/logs';
+
+    if (!is_dir($logDir)) {
+        mkdir($logDir, 0775, true);
+    }
+
+    $entry = array_merge(
+        [
+            'time' => date('c'),
+            'event' => $event,
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? null,
+            'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? null,
+            'referer' => $_SERVER['HTTP_REFERER'] ?? null,
+        ],
+        $data
+    );
+
+    file_put_contents(
+        $logDir . '/form-submissions.log',
+        json_encode($entry, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL,
+        FILE_APPEND | LOCK_EX
+    );
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Метод не поддерживается.', 405);
 }
@@ -43,21 +69,40 @@ $name = field('name', 120);
 $email = field('email', 180);
 $message = field('message', 4000);
 $consent = isset($_POST['consent']) && $_POST['consent'] === 'on';
-$website = field('website', 200);
+$honeypot = field('egida_confirm_url', 200);
 
-if ($website !== '') {
+if ($honeypot !== '') {
+    logFormEvent('honeypot_blocked', [
+        'name' => $name,
+        'email' => $email,
+        'honeypot_length' => strlen($honeypot),
+    ]);
     respond(true, 'Заявка отправлена.');
 }
 
 if ($name === '') {
+    logFormEvent('validation_failed', [
+        'reason' => 'empty_name',
+        'email' => $email,
+    ]);
     respond(false, 'Укажите ваше имя.', 422);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    logFormEvent('validation_failed', [
+        'reason' => 'invalid_email',
+        'name' => $name,
+        'email' => $email,
+    ]);
     respond(false, 'Укажите корректный E-mail.', 422);
 }
 
 if (!$consent) {
+    logFormEvent('validation_failed', [
+        'reason' => 'missing_consent',
+        'name' => $name,
+        'email' => $email,
+    ]);
     respond(false, 'Подтвердите согласие на обработку персональных данных.', 422);
 }
 
@@ -102,8 +147,28 @@ try {
     $mail->AltBody = $textBody;
 
     $mail->send();
+    logFormEvent('smtp_accepted', [
+        'name' => $name,
+        'email' => $email,
+        'to_email' => (string)$config['to_email'],
+        'from_email' => (string)$config['from_email'],
+        'smtp_host' => (string)$config['host'],
+        'smtp_port' => (int)$config['port'],
+        'message_id' => $mail->getLastMessageID(),
+        'message_preview' => field('message', 500),
+    ]);
     respond(true, 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.');
 } catch (Exception $exception) {
+    logFormEvent('smtp_failed', [
+        'name' => $name,
+        'email' => $email,
+        'to_email' => (string)$config['to_email'],
+        'from_email' => (string)$config['from_email'],
+        'smtp_host' => (string)$config['host'],
+        'smtp_port' => (int)$config['port'],
+        'error_info' => $mail->ErrorInfo,
+        'exception' => $exception->getMessage(),
+    ]);
     error_log('Egida form mail error: ' . $mail->ErrorInfo . ' / ' . $exception->getMessage());
     respond(false, 'Не удалось отправить заявку. Попробуйте позже или напишите нам на почту.', 500);
 }

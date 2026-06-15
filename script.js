@@ -119,6 +119,8 @@ form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(form);
+  formData.delete("website");
+  formData.delete("egida_confirm_url");
   const name = String(formData.get("name") || "").trim();
   const email = String(formData.get("email") || "").trim();
   const consent = formData.get("consent") === "on";
