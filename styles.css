@@ -1032,14 +1032,26 @@ textarea:focus {
 .footer-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2vw;
-  align-items: end;
+  gap: 2.2222vw;
+  align-items: center;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 0.9fr 1.05fr 1.25fr;
+  gap: 1.6667vw 2.2222vw;
+  align-items: start;
+}
+
+.footer-group {
+  min-width: 0;
 }
 
 .footer-panel p {
   margin: 0 0 0.4861vw;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.9722vw;
+  line-height: 1.5;
 }
 
 .footer-panel strong {
@@ -1051,7 +1063,9 @@ textarea:focus {
 }
 
 .copyright {
-  margin-top: 1.6667vw !important;
+  grid-column: 1 / -1;
+  margin: 0.4167vw 0 0 !important;
+  color: rgba(255, 255, 255, 0.74) !important;
 }
 
 .to-top {
@@ -1391,6 +1405,11 @@ textarea:focus {
 
   .footer-panel {
     padding: 4.17vw 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 0.95fr 1fr 1.1fr;
+    gap: 2.08vw;
   }
 
   .to-top {
@@ -1842,6 +1861,15 @@ textarea:focus {
     grid-template-columns: 1fr;
     gap: 6.6667vw;
     align-items: start;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3.8889vw;
+  }
+
+  .copyright {
+    margin-top: 1.6667vw !important;
   }
 
   .to-top {
